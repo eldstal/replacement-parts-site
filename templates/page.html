@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+<title>{% block title %} {% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html" />
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+</head>
+
+<body>
+
+  <div class="columns">
+    {# If a system is selected, this will be a list of its devices #}
+
+    {% set systems, devices, models = nav_pages(sys=system) %}
+
+    <div class="nav_tab">
+    <div class="nav" id="nav_systems">
+      <div class="header">
+      <h1>System</h1>
+      </div>
+
+      {% for sys,url in systems %}
+
+        {# Link to the system page for this system #}
+        <a href="{{ url }}">
+          {% if sys == system %}
+            <div class="navbutton navbutton-selected">
+          {% else %}
+            <div class="navbutton">
+          {% endif %}
+            {{sys}}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    </div>
+
+    <div class="nav_tab">
+    <div class="nav" id="nav_devices">
+      <div class="header">
+      <h1>Device</h1>
+      </div>
+
+      {% for dev,url in devices %}
+
+        <a href="{{ url }}">
+          {% if dev == device %}
+            <div class="navbutton navbutton-selected">
+          {% else %}
+            <div class="navbutton">
+          {% endif %}
+            {{dev}}
+          </div>
+        </a>
+      {% endfor %}
+
+    </div>
+    </div>
+
+    <div class="column_tab">
+    <div class="column">
+
+      <div class="header">
+      <h1>
+      {% block header %}
+
+      {% endblock %}
+      </h1>
+      </div>
+
+      <div class="content">
+      {% block content %}
+
+
+      {% endblock %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+

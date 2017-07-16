@@ -1,0 +1,41 @@
+{% extends "page.html" %}
+
+{% block title %}replacement-parts.net{%endblock%}
+
+{% block header %}
+  Part
+{% endblock %}
+
+{% block content %}
+
+  <table class="partlist">
+  <tr>
+    <th>Preview</th>
+    <th>Name</th>
+    <th>Class</th>
+    <th>Fits</th>
+  </tr>
+  {% for p in parts: %}
+  <tr class={{ loop.cycle("odd", "even") }}>
+    <td>
+      <a href="{{ url_for('device', sys=system, dev=p.device) }}">
+      [Image]
+      </a>
+    </td>
+    <td>
+      <a href="{{ url_for('part', sys=system, dev=p.device, prt=p.part) }}">
+      {{p.part}}
+      </a>
+    </td>
+    <td>{{p.part_class}}</td>
+    <td>
+      {% for model in p.fits: %}
+        <a class="model" href="{{ url_for('model', sys=system, mdl=model) }}">{{model}}</a>&nbsp;
+      {% endfor %}
+    </td>
+  </tr>
+  {% endfor %}
+
+  </table>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "page.html" %}
+
+{% block title %}replacement-parts.net{%endblock%}
+
+{% block header %}
+  replacement-parts.net
+{% endblock %}
+
+{% block content %}
+<img class="construction" src="{{ url_for('static', filename='underconstruction.gif') }}" />
+{% endblock %}

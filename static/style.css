@@ -1,0 +1,153 @@
+:root {
+  --basecolor: #474a71;
+  --columncolor: #d5d7ef;
+  --brdcolor: #181a2d;
+  --rulecolor: #9397cb;
+  --txtcolor: #2c2d44;
+  --linkcolor: #535790;
+  --hovercolor: #373a61;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background-color: var(--basecolor);
+  font-family: helvetica;
+  color: var(--txtcolor);
+}
+
+a {
+  color: var(--linkcolor);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--linkcolor);
+}
+
+a:hover {
+  color: var(--hovercolor);
+}
+
+
+img.construction {
+  display: block;
+  width: 20%;
+  margin: auto;
+}
+
+/*
+ * Page columns: Menu bars on the left, content on the right
+ */
+div.columns {
+  display: table;
+  width: 100%;
+  padding: 0;
+}
+
+/* Table hack for aligned columns */
+div.nav_tab {
+  display: table-cell;
+  vertical-align: top;
+  width: 180px;
+}
+
+div.column_tab {
+  display: table-cell;
+  vertical-align: top;
+}
+
+div.nav {
+  /* display: block; */
+  width: auto;
+  margin-left: 10px;
+
+  background-color: var(--columncolor);
+
+  border-style: solid;
+  border-color: var(--brdcolor);
+  border-width: 1px;
+  border-radius: 3px;
+
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+div.column {
+  display: block;
+
+  background-color: var(--columncolor);
+
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+  /*max-width: 1000px;*/
+
+  border-style: solid;
+  border-color: var(--brdcolor);
+  border-width: 1px;
+  border-radius: 3px;
+
+}
+
+/*
+ * Navigation columns
+ */
+
+div.navbutton {
+  padding: 10px;
+  margin: 2px;
+
+  border: 1px solid var(--rulecolor);
+  border-radius: 2px;
+
+  text-align: center;
+}
+
+div.navbutton-selected {
+  background-color: #FFFFFF;
+}
+
+/*
+ * Content column has two parts: Header and content
+ */
+
+div.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+
+  text-align: center;
+  color: inherit;
+
+  border-bottom: 1px solid var(--rulecolor);
+}
+
+div.content {
+  left: 0;
+  width: 100%;
+  margin: 0;
+
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+h1 {
+  margin: 5px;
+  font-size: 16pt;
+}
+
+h3 {
+  margin-top: 5px;
+  font-size: 16pt;
+}

@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+
+{% block title %}replacement-parts.net{%endblock%}
+
+{% block header %}
+  <a href="{{ url_for('system', sys=system) }}">{{ system }}</a>
+  &nbsp;/&nbsp;
+  <a href="{{ url_for('device', sys=system, dev=device) }}">{{ device }}</a>
+  &nbsp;/&nbsp;
+  {{ part }}
+{% endblock %}
+
+{% block content %}
+
+
+{% endblock %}
