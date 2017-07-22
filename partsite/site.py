@@ -5,7 +5,7 @@ from flask import render_template, url_for
 
 from itertools import chain
 
-from dbmodel import *
+from partsite.dbmodel import *
 
 
 
@@ -157,7 +157,3 @@ def add_header(r):
 	r.headers["Expires"] = "0"
 	r.headers['Cache-Control'] = 'public, max-age=0'
 	return r
-
-if __name__ == '__main__':
-	app.run()
-

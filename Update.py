@@ -8,7 +8,7 @@ import os
 import sys
 import glob
 
-from dbmodel import *
+from partsite.dbmodel import *
 
 class GitProgress(git.remote.RemoteProgress):
 	def update(self, op_code, cur_count, max_count=None, message=''):
