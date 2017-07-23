@@ -1,86 +1,216 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+
+<meta name="Description" content="Retro gaming, 3D printing, CAD drawings" />
+<meta name="Keywords" content="3d printing, cad, retro computing, retro gaming, consoles, spare parts, replacement parts" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Distribution" content="Global" />
+<meta name="Robots" content="index,follow" />
+
+<link rel="stylesheet" href="{{ url_for('static', filename='Underground.css') }}" type="text/css">
+
 {% block head %}
-<title>{% block title %} {% endblock %}</title>
+<title>{% block title %} replacement-parts.net {% endblock %}</title>
 <meta http-equiv="Content-Type" content="text/html" />
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 {% endblock %}
+
 </head>
 
 <body>
+<!-- wrap starts here -->
+<div id="wrap">
 
-  <div class="columns">
+    <!-- header -->
+    <div id="header">
+
+      <span id="slogan">An open library of CAD parts for classic consoles</span>
+
+    <!--
+      <ul>
+        <li id="current"><a href="index.html"><span>Home</span></a></li>
+        <li><a href="index.html"><span>Archives</span></a></li>
+        <li><a href="index.html"><span>Downloads</span></a></li>
+        <li><a href="index.html"><span>Services</span></a></li>
+        <li><a href="index.html"><span>Support</span></a></li>
+        <li><a href="index.html"><span>About</span></a></li>
+      </ul>
+    -->
+
+    </div>
+
+    <div id="header-logo">
+      <a href="{{ url_for('index') }}">
+      <div id="logo">
+        replacement-parts<span class="red">.net</span>
+        {% block header %}
+        {% endblock %}
+      </div>
+      </a>
+
+      <!--
+      <form method="post" class="search" action="#">
+        <p><input name="search_query" class="textbox" type="text" />
+          <input name="search" class="searchbutton" value="Search" type="submit" /></p>
+      </form>
+      -->
+
+    </div>
+
+
+    <div id="sidebar" >
+
     {# If a system is selected, this will be a list of its devices #}
-
     {% set systems, devices, models = nav_pages(sys=system) %}
 
-    <div class="nav_tab">
-    <div class="nav" id="nav_systems">
-      <div class="header">
       <h1>System</h1>
+      <div class="left-box">
+        <ul class="sidemenu">
+        {% for sys,url in systems %}
+
+          {# Link to the system page for this system #}
+            {% if sys == systtem %}
+              <li class="selected">
+            {% else %}
+              <li>
+            {% endif %}
+            <a href="{{ url }}">
+              {{sys}}
+            </a>
+            </li>
+        {% endfor %}
+        </ul>
       </div>
 
-      {% for sys,url in systems %}
+      {% if devices %}
+        <h1>Device</h1>
+        <div class="left-box">
+          <ul class="sidemenu">
 
-        {# Link to the system page for this system #}
-        <a href="{{ url }}">
-          {% if sys == system %}
-            <div class="navbutton navbutton-selected">
-          {% else %}
-            <div class="navbutton">
-          {% endif %}
-            {{sys}}
-          </div>
-        </a>
-      {% endfor %}
-    </div>
-    </div>
+          {% for dev,url in devices %}
 
-    <div class="nav_tab">
-    <div class="nav" id="nav_devices">
-      <div class="header">
-      <h1>Device</h1>
-      </div>
+            <a href="{{ url }}">
+              {% if dev == device %}
+                <li class="selected">
+              {% else %}
+                <li>
+              {% endif %}
+              <a href="{{ url }}">
+                {{dev}}
+              </a>
+              </li>
+            </a>
+          {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
 
-      {% for dev,url in devices %}
-
-        <a href="{{ url }}">
-          {% if dev == device %}
-            <div class="navbutton navbutton-selected">
-          {% else %}
-            <div class="navbutton">
-          {% endif %}
-            {{dev}}
-          </div>
-        </a>
-      {% endfor %}
-
-    </div>
-    </div>
-
-    <div class="column_tab">
-    <div class="column">
-
-      <div class="header">
-      <h1>
-      {% block header %}
-
+      {% block navbox %}
       {% endblock %}
-      </h1>
-      </div>
-
-      <div class="content">
-      {% block content %}
 
 
-      {% endblock %}
-      </div>
     </div>
-  </div>
+
+
+    <div id="main">
+
+    {% block content %}
+      <a name="TemplateInfo"></a>
+      <h1>Template Info</h1>
+
+      <p><strong>Underground 1.1</strong> is a free, W3C-compliant, CSS-based website template
+      by <strong><a href="http://www.styleshout.com/">styleshout.com</a></strong>. This work is
+      distributed under the <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">
+      Creative Commons Attribution 2.5  License</a>, which means that you are free to
+      use and modify it for any purpose. All I ask is that you include a link back to
+      <a href="http://www.styleshout.com/">my website</a> in your credits.</p>
+
+      <p>For more free designs, you can visit
+      <a href="http://www.styleshout.com/">my website</a> to see
+      my other works.</p>
+
+      <p>Good luck and I hope you find my free templates useful!</p>
+
+      <p class="comments align-right clear">
+        <a href="index.html">Read more</a> :
+        <a href="index.html">comments(3)</a> :
+        10.18.06
+      </p>
+
+      <a name="SampleTags"></a>
+      <h1>Sample Tags</h1>
+
+      <h3>Code</h3>
+      <p>
+      <code>
+      code-sample { <br />
+      font-weight: bold;<br />
+      font-style: italic;<br />
+      }
+      </code></p>
+
+      <h3>Example Lists</h3>
+
+      <ol>
+        <li>example of</li>
+        <li>ordered list</li>
+      </ol>
+
+      <ul>
+        <li>example of</li>
+        <li>unordered list</li>
+      </ul>
+
+      <h3>Blockquote</h3>
+      <blockquote><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+      nibh euismod tincidunt ut laoreet dolore magna aliquam erat....</p></blockquote>
+
+      <h3>Image and text</h3>
+      <p><a href="http://getfirefox.com/"><img src="static/firefox-gray.jpg" width="100" height="120" alt="firefox" class="float-left" /></a>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
+      Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
+      posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum
+      odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra
+      condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. Curabitur vel urna.
+      In tristique orci porttitor ipsum. Aliquam ornare diam iaculis nibh. Proin luctus, velit pulvinar
+      ullamcorper nonummy, mauris enim eleifend urna, congue egestas elit lectus eu est.
+      </p>
+
+      <h3>Example Form</h3>
+
+      <form action="#">
+        <p>
+        <label>Name</label>
+        <input name="dname" value="Your Name" type="text" size="30" />
+        <label>Email</label>
+        <input name="demail" value="Your Email" type="text" size="30" />
+        <label>Your Comments</label>
+        <textarea rows="5" cols="5"></textarea>
+        <br />
+        <input class="button" type="submit" />
+        </p>
+      </form>
+      <br />
+
+    </div>
+
+  {% endblock %}
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->
+<div class="footer">
+
+    <p>
+    Design by: <a href="http://www.styleshout.com/">styleshout</a> |
+    Valid <a href="http://validator.w3.org/check/referer">XHTML</a> |
+     <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="index.html">Home</a> |
+     <a href="https://github.com/eldstal/replacement-parts">Github</a>
+    </p>
+
+</div>
+
 </body>
-
 </html>
-
-

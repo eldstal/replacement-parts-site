@@ -20,7 +20,7 @@ def all_systems():
 # Two lists, one of systems and one of devices.
 # Each list entry is a tuple of (title, url)
 def nav_pages(sys=None, dev=None):
-	systems = [ ("Index", url_for("index")) ]
+	systems = []
 	devices = []
 	models = []
 
@@ -61,7 +61,7 @@ def error_404(error):
 
 @app.route('/')
 def index():
-	return render_template("index.html", system="Index")
+	return render_template("index.html", system="index")
 
 
 @app.route('/system/<sys>/')

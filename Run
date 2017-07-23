@@ -3,5 +3,5 @@ if [ "$1" == "debug" ]; then
   export FLASK_DEBUG=1
 fi
 
-./wsgi.py
+./wrapper.py
 

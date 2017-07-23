@@ -3,10 +3,20 @@
 {% block title %}replacement-parts.net{%endblock%}
 
 {% block header %}
-  Part
+  {% if system %}
+  &nbsp;/&nbsp;<a href="{{ url_for('system', sys=system) }}">{{ system }}</a>
+  {% endif %}
+
+  {% if device %}
+  &nbsp;/&nbsp;
+  <a href="{{ url_for('device', sys=system, dev=device) }}">{{ device }}</a>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
+  <h1>
+  Parts listing
+  </h1>
 
   <table class="partlist">
   <tr>
